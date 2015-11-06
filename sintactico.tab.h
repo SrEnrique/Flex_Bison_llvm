@@ -63,10 +63,11 @@ extern int yydebug;
     MAI = 273,
     MEI = 274,
     DIF = 275,
-    OR = 276,
-    AND = 277,
-    NOT = 278,
-    MENOS_UNARIO = 279
+    MAS = 276,
+    OR = 277,
+    AND = 278,
+    NOT = 279,
+    MENOS_UNARIO = 280
   };
 #endif
 
@@ -84,7 +85,7 @@ union YYSTYPE
   doble_cond bloque_cond;
   datos_case bloque_case;
 
-#line 88 "sintactico.tab.h" /* yacc.c:1909  */
+#line 89 "sintactico.tab.h" /* yacc.c:1909  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1

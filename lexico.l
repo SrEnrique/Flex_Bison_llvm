@@ -12,6 +12,9 @@
 <COMENT>.+ { ; }
 <COMENT>\n { BEGIN 0; linea_actual++; }
 
+"+"		{return MAS;}
+
+
 ":="     { return ASIG; }
 
 

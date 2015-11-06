@@ -27,7 +27,9 @@
 %token <etiqueta_aux> SI MIENTRAS REPETIR
 %token <etiqueta_siguiente> CASO
 %token ASIG ENTONCES INICIO FIN HACER HASTA CASE DE SINO
-%token MAI MEI DIF
+%token MAI MEI DIF 
+
+%token MAS
 /* Declaración de no terminales y sus atributos */
 %type <variable_aux> expr
 %type <bloque_cond> cond
@@ -41,10 +43,10 @@
 %left MENOS_UNARIO
 
 %%
-prog: prog sent ';'
+prog : prog sent ';'
   | prog error ';' { yyerrok; }
   |
-;
+  ;
 sent: ID ASIG expr { printf("\t%s = %s\n", $1, $3); }
   | SI cond { printf("label %s\n", $2.etq_verdad); } ENTONCES
       sent ';' { nuevaEtq($1); printf("\tgoto %s\n", $1); printf("label %s\n", $2.etq_falso); }
@@ -62,6 +64,11 @@ sent: ID ASIG expr { printf("\t%s = %s\n", $1, $3); }
       printf("label %s\n", $6.etq_verdad);
     }
   | sent_case
+  | ID MAS ID {
+    printf("Estas sumando :D \n");
+  }
+
+
 ;
 opcional: /* Epsilon */
   | SINO 
