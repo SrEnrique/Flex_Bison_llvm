@@ -13,9 +13,13 @@
 <COMENT>\n { BEGIN 0; linea_actual++; }
 
 ":="     { return ASIG; }
+
+
 ">="     { return MAI; }
 "<="     { return MEI; }
 "<>"     { return DIF; }
+
+
 CASE     { return CASE; }
 DE       { return DE; }
 CASO     { return CASO; }
